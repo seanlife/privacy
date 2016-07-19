@@ -9,8 +9,22 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>onem.lyb.utils</groupId>
     <artifactId>schedule</artifactId>
+    <packaging>pom</packaging>
+    <name>schedule</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>onem.lyb.utils</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+    </dependencies>
 
 
 </project>
