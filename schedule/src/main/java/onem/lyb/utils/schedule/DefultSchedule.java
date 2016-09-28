@@ -13,6 +13,7 @@ import com.sun.javafx.binding.StringFormatter;
 import onem.lyb.utils.schedule.config.ScheduleMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 
 import java.text.MessageFormat;
 import java.util.Calendar;
@@ -47,6 +48,7 @@ public class DefultSchedule extends Thread  {
 
     @Override
     public void run() {
+        Assert.notNull(defultTimeTask,"TimeTask 不能为空");
         System.out.println(MessageFormat.format("配置每日定时任务 任务:{0},模式:{1},间隔时间:{2},执行时间:{3}",
                 defultTimeTask, scheduleMethod.message(), PERIOD_DAY, calendar.getTime()));
         try {
