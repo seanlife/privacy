@@ -1,11 +1,13 @@
 package onem.lyb.utils.common.tools.http;
 
+import java.nio.MappedByteBuffer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.google.common.collect.Maps;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;
@@ -23,7 +25,7 @@ public class HttpsPostHandler {
 	protected static final Logger logger = LoggerFactory.getLogger(HttpsPostHandler.class);
 	
 	private String url;
-	private Map<String,String> params;
+	private Map<String,String> params= Maps.newHashMap();
 	
 	public HttpsPostHandler(String url,Map<String,String> params){
 		this.url=url;
@@ -52,13 +54,7 @@ public class HttpsPostHandler {
 		Protocol myhttps = new Protocol("https", new DefaultProtocolSocketFactory(), 443);
 		Protocol.registerProtocol("https", myhttps);
 		HttpClient client = new HttpClient();
-//		//设置代理服务器的ip地址和端口
-//		client.getHostConfiguration().setProxy("192.168.101.1", 5608);
-		//使用抢先认证
 		client.getParams().setAuthenticationPreemptive(true);
-		//设置用户名密码
-//		client.getState().setProxyCredentials(AuthScope.ANY,
-//                new UsernamePasswordCredentials("Joice_Chen", "8000171q2w3e4r5t"));
         client.getHttpConnectionManager().getParams().setSoTimeout(3000);
         List<Header> headers = new ArrayList<Header>();
         headers.add(new Header("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)"));

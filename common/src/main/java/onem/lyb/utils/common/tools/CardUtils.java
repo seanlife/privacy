@@ -2,7 +2,7 @@ package onem.lyb.utils.common.tools;
 
 /**
  *
- * @deprecated  身份证,卡号，ID各种号码处理工具集
+ *  身份证,卡号，ID各种号码处理工具集
  *
  */
 public class CardUtils {

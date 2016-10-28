@@ -314,6 +314,17 @@
                 <version>7.0.39</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>1.6.1</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>xml-apis</artifactId>
+                        <groupId>xml-apis</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <!--serialization 这个100年不升级吧,太恼火了-->
             <dependency>
                 <groupId>com.alibaba</groupId>

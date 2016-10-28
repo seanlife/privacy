@@ -18,7 +18,7 @@ public class HttpResult {
 
 	public HttpResult(int code,String message){
 		this.code=code;
-		this.message=message;
+		this.message =message;
 	}
 
     public int getCode() {
@@ -36,5 +36,8 @@ public class HttpResult {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
+    public String toString(){
+        return "HttpResult:code["+code+"] message["+ message +"]";
+    }
 }
