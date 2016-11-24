@@ -9,6 +9,8 @@
  */
 package onem.lyb.utils.common.jvm;
 
+import java.util.Set;
+
 /**
  * @author kshujun(kshujun@yiji.com)
  * @version 1.0
@@ -16,16 +18,14 @@ package onem.lyb.utils.common.jvm;
  */
 public class ClassLoaderTest {
 
-    public static void  main(String[]strings ){
-        String path=System.getProperty("java.class.path");
-        print("java.class.path "+path);
+    public static void main(String[] strings) throws Exception {
 
-        String sepe=System.getProperty("path.separator");
-        print("path.separator "+sepe);
+        Set<Class<?>> classes = new StandardScanner().acceptableJarName("ecj-4.2.2.jar").acceptablePackagePath("org.eclipse.jdt.internal.compiler.apt.dispatch").init().scan();
 
+        print(classes.toString());
     }
 
-    static void print(String s){
+    static void print(String s) {
         System.out.println(s);
     }
 
